@@ -12,8 +12,10 @@ edition = "2018"
 
 [features]
 default = ["source"]
-loader-freetype = ["freetype"]
-loader-freetype-default = ["loader-freetype"]
+# loader-freetype = ["freetype"]
+# loader-freetype-default = ["loader-freetype"]
+loader-swash = ["swash"]
+loader-swash-default = ["loader-swash"]
 source-fontconfig = ["yeslogic-fontconfig-sys"]
 source-fontconfig-dlopen = ["yeslogic-fontconfig-sys/dlopen"]
 source-fontconfig-default = ["source-fontconfig"]
@@ -29,8 +31,12 @@ log = "0.4.4"
 pathfinder_geometry = "0.5"
 pathfinder_simd = "0.5.1"
 
-[dependencies.freetype]
-version = "0.7"
+# [dependencies.freetype]
+# version = "0.7"
+# optional = true
+
+[dependencies.swash]
+version = "0.1"
 optional = true
 
 [dependencies.yeslogic-fontconfig-sys]
@@ -56,7 +62,8 @@ core-graphics = "0.22"
 core-text = "19.1.0"
 
 [target.'cfg(not(any(target_family = "windows", target_os = "macos", target_os = "ios")))'.dependencies]
-freetype = "0.7"
+# freetype = "0.7"
+swash = "0.1"
 
 [target.'cfg(not(any(target_family = "windows", target_os = "macos", target_os = "ios", target_arch = "wasm32")))'.dependencies]
 yeslogic-fontconfig-sys = "3.0.0"
