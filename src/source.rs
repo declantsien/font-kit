@@ -76,6 +76,9 @@ pub trait Source: Any {
     /// Returns the names of all families installed on the system.
     fn all_families(&self) -> Result<Vec<String>, SelectionError>;
 
+    /// Returns paths of all fonts installed on the system.
+    fn list_fonts(&self) -> Result<Vec<Handle>, SelectionError>;
+
     /// Looks up a font family by name and returns the handles of all the fonts in that family.
     fn select_family_by_name(&self, family_name: &str) -> Result<FamilyHandle, SelectionError>;
 
